@@ -18,32 +18,31 @@
             </div>
             
             <div class="input-group">
-                <label data-i18n="language">Language</label>
+                <label>Language</label>
                 <select id="language">
                     <option value="en">🇺🇸 English</option>
-                    <option value="bg">🇧🇬 Български</option>
                 </select>
             </div>
 
             <div class="input-group">
-                <label data-i18n="currency">Currency</label>
+                <label>Currency</label>
                 <select id="currency">
                     <option value="usd">$ US Dollar</option>
                 </select>
             </div>
 
             <div class="input-group">
-                <label data-i18n="campaignStart">Campaign Start</label>
+                <label>Campaign Start</label>
                 <input type="date" id="startDate" value="2026-05-08">
             </div>
 
             <div class="input-group">
-                <label data-i18n="campaignEnd">Campaign End</label>
+                <label>Campaign End</label>
                 <input type="date" id="endDate" value="2026-11-04">
             </div>
 
             <div class="input-group">
-                <label data-i18n="totalRevenue">Total Revenue</label>
+                <label>Total Revenue</label>
                 <div class="input-with-prefix">
                     <span class="prefix">$</span>
                     <input type="number" id="revenue" value="10000">
@@ -51,7 +50,7 @@
             </div>
 
             <div class="input-group">
-                <label data-i18n="aov">Avg. Order Value</label>
+                <label>Avg. Order Value</label>
                 <div class="input-with-prefix">
                     <span class="prefix">$</span>
                     <input type="number" id="aov" value="1000">
@@ -73,7 +72,7 @@
                 <div class="kpi-container">
                     <div class="kpi-card">
                         <div class="kpi-header">
-                            <span class="kpi-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg> <span data-i18n="prospects">Prospects</span></span>
+                            <span class="kpi-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg> Prospects</span>
                             <span class="kpi-percent" id="prospectsPercent">100%</span>
                         </div>
                         <div class="kpi-value" id="prospectsValue">125</div>
@@ -82,7 +81,7 @@
 
                     <div class="kpi-card">
                         <div class="kpi-header">
-                            <span class="kpi-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> <span data-i18n="leads">Leads</span></span>
+                            <span class="kpi-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Leads</span>
                             <span class="kpi-percent" id="leadsPercent">20%</span>
                         </div>
                         <div class="kpi-value" id="leadsValue">25</div>
@@ -91,7 +90,7 @@
 
                     <div class="kpi-card">
                         <div class="kpi-header">
-                            <span class="kpi-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg> <span data-i18n="customers">Customers</span></span>
+                            <span class="kpi-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg> Customers</span>
                             <span class="kpi-percent" id="customersPercent">8%</span>
                         </div>
                         <div class="kpi-value" id="customersValue">10</div>
@@ -104,7 +103,7 @@
             <div class="sliders-card">
                 <div class="slider-group">
                     <div class="slider-header">
-                        <label data-i18n="leadRate">Lead Response Rate</label>
+                        <label>Lead Response Rate</label>
                     </div>
                     <input type="range" id="leadRate" min="1" max="100" value="40" step="1">
                     <div class="slider-value-right" id="leadRateDisplay">40.00%</div>
@@ -112,7 +111,7 @@
 
                 <div class="slider-group">
                     <div class="slider-header">
-                        <label data-i18n="prospectRate">Prospect Response Rate</label>
+                        <label>Prospect Response Rate</label>
                     </div>
                     <input type="range" id="prospectRate" min="1" max="100" value="20" step="1">
                     <div class="slider-value-right" id="prospectRateDisplay">20.00%</div>
