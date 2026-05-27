@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let step = maxAxis / 6;
         for (let i = 0; i <= 6; i++) {
             let span = document.createElement('span');
-            span.innerText = Math.round(i * step) + ' people';
+            span.innerText = Math.round(i * step) + ' ' + (translations[currentLang] ? translations[currentLang].people : 'people');
             xAxis.appendChild(span);
         }
         chartContainer.appendChild(xAxis);
@@ -199,8 +199,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showTooltip(e, month, p, l, c) {
+        const t = translations[currentLang] || translations['en'];
         tooltip.style.display = 'block';
-        tooltip.innerHTML = `Month #${month}<br>Prospects: ${Math.round(p)}<br>Leads: ${Math.round(l)}<br>Customers: ${Math.round(c)}`;
+        tooltip.innerHTML = `${t.monthPrefix}${month}<br>${t.prospects}: ${Math.round(p)}<br>${t.leads}: ${Math.round(l)}<br>${t.customers}: ${Math.round(c)}`;
         moveTooltip(e);
     }
 
