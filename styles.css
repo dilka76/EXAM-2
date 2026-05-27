@@ -27,13 +27,15 @@ body {
 .dashboard {
     display: flex;
     gap: 20px;
-    max-width: 1200px;
+    width: 100%;
+    min-height: calc(100vh - 40px);
     margin: 0 auto;
 }
 
 /* Sidebar */
 .sidebar {
     width: 250px;
+    flex-shrink: 0;
     background-color: var(--bg-card);
     padding: 20px;
     border-radius: 12px;
@@ -98,12 +100,14 @@ select, input[type="date"], input[type="number"] {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    min-width: 0;
 }
 
 .top-section {
     display: flex;
     gap: 20px;
-    height: 400px;
+    min-height: 400px;
+    flex: 1;
 }
 
 /* Chart Area */
@@ -308,4 +312,47 @@ input[type=range]::-webkit-slider-runnable-track {
     line-height: 1.4;
     white-space: nowrap;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+    .dashboard {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        flex-shrink: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-section {
+        flex-direction: column;
+        height: auto;
+        flex: none;
+    }
+    
+    .chart-card {
+        min-height: 400px;
+    }
+
+    .kpi-container {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .kpi-card {
+        flex: 1 1 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .kpi-container {
+        flex-direction: column;
+    }
+    .x-axis span {
+        font-size: 0.6rem;
+    }
 }
