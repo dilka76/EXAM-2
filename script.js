@@ -1,4 +1,54 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Translations
+    const translations = {
+        en: {
+            language: "Language",
+            currency: "Currency",
+            campaignStart: "Campaign Start",
+            campaignEnd: "Campaign End",
+            totalRevenue: "Total Revenue",
+            aov: "Avg. Order Value",
+            prospects: "Prospects",
+            leads: "Leads",
+            customers: "Customers",
+            leadRate: "Lead Response Rate",
+            prospectRate: "Prospect Response Rate",
+            monthPrefix: "Month #",
+            people: "people"
+        },
+        bg: {
+            language: "Език",
+            currency: "Валута",
+            campaignStart: "Начало на кампания",
+            campaignEnd: "Край на кампания",
+            totalRevenue: "Общи приходи",
+            aov: "Ср. стойност на поръчка",
+            prospects: "Контакти",
+            leads: "Потенциални клиенти",
+            customers: "Клиенти",
+            leadRate: "Честота на отговор (Пот. клиенти)",
+            prospectRate: "Честота на отговор (Контакти)",
+            monthPrefix: "Месец #",
+            people: "души"
+        }
+    };
+
+    let currentLang = 'en';
+
+    // Interactive Language Switcher
+    const languageInput = document.getElementById('language');
+    languageInput.addEventListener('change', (e) => {
+        currentLang = e.target.value;
+        const elements = document.querySelectorAll('[data-i18n]');
+        elements.forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if(translations[currentLang][key]) {
+                el.innerText = translations[currentLang][key];
+            }
+        });
+        calculate(); // re-render charts & tooltips
+    });
+
     // Inputs
     const revenueInput = document.getElementById('revenue');
     const aovInput = document.getElementById('aov');
