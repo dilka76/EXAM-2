@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeadPredictor Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 4C3 3.44772 3.44772 3 4 3H20C20.5523 3 21 3.44772 21 4V6.58579C21 6.851 20.8946 7.10536 20.7071 7.29289L14 14V20C14 20.5523 13.5523 21 13 21H11C10.4477 21 10 20.5523 10 20V14L3.29289 7.29289C3.10536 7.10536 3 6.851 3 6.58579V4Z" fill="#a4a8b5"/>
+                </svg>
+                <h2>LeadPredictor</h2>
+            </div>
+            
+            <div class="input-group">
+                <label>Language</label>
+                <select id="language">
+                    <option value="en">🇺🇸 English</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Currency</label>
+                <select id="currency">
+                    <option value="usd">$ US Dollar</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Campaign Start</label>
+                <input type="date" id="startDate" value="2026-05-08">
+            </div>
+
+            <div class="input-group">
+                <label>Campaign End</label>
+                <input type="date" id="endDate" value="2026-11-04">
+            </div>
+
+            <div class="input-group">
+                <label>Total Revenue</label>
+                <div class="input-with-prefix">
+                    <span class="prefix">$</span>
+                    <input type="number" id="revenue" value="10000">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Avg. Order Value</label>
+                <div class="input-with-prefix">
+                    <span class="prefix">$</span>
+                    <input type="number" id="aov" value="1000">
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-section">
+                <!-- Chart Area -->
+                <div class="chart-card" id="chartCard">
+                    <div class="chart-container" id="chartContainer">
+                        <!-- Chart generated via JS -->
+                    </div>
+                </div>
+
+                <!-- KPIs -->
+                <div class="kpi-container">
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="kpi-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg> Prospects</span>
+                            <span class="kpi-percent" id="prospectsPercent">100%</span>
+                        </div>
+                        <div class="kpi-value" id="prospectsValue">125</div>
+                        <div class="progress-bar"><div class="progress-fill" id="prospectsProgress" style="width: 100%;"></div></div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="kpi-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Leads</span>
+                            <span class="kpi-percent" id="leadsPercent">20%</span>
+                        </div>
+                        <div class="kpi-value" id="leadsValue">25</div>
+                        <div class="progress-bar"><div class="progress-fill" id="leadsProgress" style="width: 20%;"></div></div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="kpi-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg> Customers</span>
+                            <span class="kpi-percent" id="customersPercent">8%</span>
+                        </div>
+                        <div class="kpi-value" id="customersValue">10</div>
+                        <div class="progress-bar"><div class="progress-fill" id="customersProgress" style="width: 8%;"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sliders Area -->
+            <div class="sliders-card">
+                <div class="slider-group">
+                    <div class="slider-header">
+                        <label>Lead Response Rate</label>
+                    </div>
+                    <input type="range" id="leadRate" min="1" max="100" value="40" step="1">
+                    <div class="slider-value-right" id="leadRateDisplay">40.00%</div>
+                </div>
+
+                <div class="slider-group">
+                    <div class="slider-header">
+                        <label>Prospect Response Rate</label>
+                    </div>
+                    <input type="range" id="prospectRate" min="1" max="100" value="20" step="1">
+                    <div class="slider-value-right" id="prospectRateDisplay">20.00%</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Tooltip -->
+    <div id="tooltip" class="tooltip" style="display: none;"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
