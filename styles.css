@@ -1,13 +1,13 @@
 :root {
-    --bg-main: #f0f2f5;
-    --bg-card: #ffffff;
-    --bg-input: #f9fafb;
-    --text-primary: #1f2937;
-    --text-secondary: #6b7280;
+    --bg-main: #131720;
+    --bg-card: #1c212a;
+    --bg-input: #2a2e39;
+    --text-primary: #e5e7eb;
+    --text-secondary: #9ca3af;
     --accent: #3b82f6;
-    --chart-prospects: #bfdbfe;
-    --chart-leads: #60a5fa;
-    --chart-customers: #2563eb;
+    --chart-prospects: #2d3e5a;
+    --chart-leads: #4b6a9e;
+    --chart-customers: #60a5fa;
 }
 
 * {
@@ -28,6 +28,7 @@ body {
     display: flex;
     gap: 20px;
     width: 100%;
+    max-width: 1280px;
     min-height: calc(100vh - 40px);
     margin: 0 auto;
 }
@@ -39,7 +40,8 @@ body {
     background-color: var(--bg-card);
     padding: 20px;
     border-radius: 12px;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    animation: slideInLeft 0.5s ease forwards;
 }
 
 .logo {
@@ -60,22 +62,34 @@ body {
 }
 
 .input-group label {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 6px;
     margin-bottom: 8px;
     font-size: 0.85rem;
     color: var(--text-primary);
     font-weight: 500;
 }
 
+.input-group label svg {
+    color: var(--text-secondary);
+}
+
 select, input[type="date"], input[type="number"] {
     width: 100%;
     background-color: var(--bg-input);
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
     color: var(--text-primary);
     padding: 10px;
     border-radius: 8px;
     outline: none;
     font-size: 0.9rem;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+select:focus, input[type="date"]:focus, input[type="number"]:focus {
+    border-color: var(--chart-customers);
+    background-color: rgba(42, 46, 57, 0.8);
 }
 
 .input-with-prefix {
@@ -116,8 +130,9 @@ select, input[type="date"], input[type="number"] {
     background-color: var(--bg-card);
     border-radius: 12px;
     padding: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     position: relative;
+    animation: fadeIn 0.6s ease forwards;
 }
 
 .chart-container {
@@ -148,17 +163,21 @@ select, input[type="date"], input[type="number"] {
     flex: 1;
     position: relative;
     height: 100%;
-    border-left: 1px solid rgba(0,0,0,0.1);
+    border-left: 1px solid rgba(255,255,255,0.1);
     display: flex;
     align-items: center;
 }
+
+.bars-area:hover .bar-prospects { filter: brightness(1.2); }
+.bars-area:hover .bar-leads { filter: brightness(1.2); }
+.bars-area:hover .bar-customers { filter: brightness(1.2); }
 
 .bar-prospects, .bar-leads, .bar-customers {
     position: absolute;
     height: 80%;
     left: 0;
     border-radius: 0 4px 4px 0;
-    transition: width 0.3s ease;
+    transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.2s ease;
 }
 
 .bar-prospects { background-color: var(--chart-prospects); z-index: 1; }
@@ -170,7 +189,7 @@ select, input[type="date"], input[type="number"] {
     justify-content: space-between;
     margin-left: 30px; /* offset for month label */
     padding-top: 10px;
-    border-top: 1px solid rgba(0,0,0,0.1);
+    border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 .x-axis span {
@@ -190,11 +209,18 @@ select, input[type="date"], input[type="number"] {
     background-color: var(--bg-card);
     border-radius: 12px;
     padding: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.kpi-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.15);
 }
 
 .kpi-header {
@@ -245,7 +271,8 @@ select, input[type="date"], input[type="number"] {
     background-color: var(--bg-card);
     border-radius: 12px;
     padding: 30px;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    animation: fadeIn 1s ease forwards;
 }
 
 .slider-group {
@@ -273,22 +300,27 @@ input[type=range] {
 
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    height: 20px;
-    width: 20px;
+    height: 14px;
+    width: 14px;
     border-radius: 50%;
     background: var(--chart-customers);
     cursor: pointer;
-    margin-top: -8px;
-    box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+    margin-top: -5px;
+    box-shadow: 0 0 10px rgba(96, 165, 250, 0.4);
     border: 2px solid #ffffff;
+    transition: transform 0.1s ease;
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
 }
 
 input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
-    height: 6px;
+    height: 4px;
     cursor: pointer;
     background: var(--bg-input);
-    border-radius: 3px;
+    border-radius: 2px;
 }
 
 .slider-value-right {
@@ -301,17 +333,28 @@ input[type=range]::-webkit-slider-runnable-track {
 /* Tooltip */
 .tooltip {
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.95);
-    color: var(--text-primary);
+    background-color: rgba(42, 46, 57, 0.95);
+    color: #fff;
     padding: 10px;
     border-radius: 6px;
     font-size: 0.8rem;
     pointer-events: none;
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
     z-index: 100;
     line-height: 1.4;
     white-space: nowrap;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    opacity: 0;
+    transition: opacity 0.2s ease, left 0.1s ease, top 0.1s ease;
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Responsive Media Queries */
