@@ -1,13 +1,13 @@
 :root {
-    --bg-main: #131720;
-    --bg-card: #1c212a;
-    --bg-input: #2a2e39;
-    --text-primary: #e5e7eb;
-    --text-secondary: #9ca3af;
+    --bg-main: #f0f2f5;
+    --bg-card: #ffffff;
+    --bg-input: #f9fafb;
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
     --accent: #3b82f6;
-    --chart-prospects: #2d3e5a;
-    --chart-leads: #4b6a9e;
-    --chart-customers: #60a5fa;
+    --chart-prospects: #bfdbfe;
+    --chart-leads: #60a5fa;
+    --chart-customers: #2563eb;
 }
 
 * {
@@ -37,7 +37,7 @@ body {
     background-color: var(--bg-card);
     padding: 20px;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .logo {
@@ -50,7 +50,7 @@ body {
 .logo h2 {
     font-size: 1.25rem;
     font-weight: 600;
-    color: #e5e7eb;
+    color: var(--text-primary);
 }
 
 .input-group {
@@ -68,7 +68,7 @@ body {
 select, input[type="date"], input[type="number"] {
     width: 100%;
     background-color: var(--bg-input);
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(0,0,0,0.1);
     color: var(--text-primary);
     padding: 10px;
     border-radius: 8px;
@@ -112,7 +112,7 @@ select, input[type="date"], input[type="number"] {
     background-color: var(--bg-card);
     border-radius: 12px;
     padding: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.08);
     position: relative;
 }
 
@@ -144,7 +144,7 @@ select, input[type="date"], input[type="number"] {
     flex: 1;
     position: relative;
     height: 100%;
-    border-left: 1px solid rgba(255,255,255,0.1);
+    border-left: 1px solid rgba(0,0,0,0.1);
     display: flex;
     align-items: center;
 }
